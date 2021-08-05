@@ -1,12 +1,13 @@
 # OctoWrt
 A guide to install Octoprint on the Creality WiFi Box or similar OpenWrt devices
 
-####Install OpenWrt dependencies:
+#### 1. Install OpenWrt dependencies:
 **original `distfeeds.conf`**:
 
 ```
 opkg update
-opkg install gcc make unzip htop wget-ssl 
+opkg install gcc make unzip htop wget-ssl
+opkg install v4l-utils mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-streamer-www
 ```
 
 **v19.07.7 `distfeeds.conf`**
@@ -17,11 +18,11 @@ opkg install python python-pip python-dev
 pip install --upgrade setuptools
 ```
 
-####Install Octoprint:
+#### 2. Install Octoprint:
 
 `pip install Octprint==1.6.1`
 
-####Create octoprint service:
+#### 3. Create octoprint service:
 ```
 cat << "EOF" > /etc/init.d/octoprint
 #!/bin/sh /etc/rc.common
@@ -43,13 +44,19 @@ start_service() {
 }
 EOF
 ```
-####Make it executable:
+#### 4. Make it executable:
 
 ```
 chmod +x /etc/init.d/octoprint
 ```
-####Enable the service:
+#### 5. Enable the service:
 
 ```
 service octoprint enable
 ``` 
+
+#### 6. Reboot and wait a while
+
+```
+reboot
+```
