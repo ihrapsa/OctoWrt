@@ -2,7 +2,11 @@
 A guide to install Octoprint on the Creality WiFi Box or similar OpenWrt devices
 
 -----------
+
 ## ⚠️ Work in Progress ⚠️
+
+This is still python2 based. Python3 version coming soon...
+
 ----------
 
 #### 1. Install OpenWrt dependencies:
@@ -80,3 +84,5 @@ service octoprint enable
 ```
 reboot
 ```
+▶️ _Note!_  
+Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) hat are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview. 
