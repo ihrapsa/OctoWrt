@@ -11,7 +11,23 @@ opkg install v4l-utils mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-st
 ```
 
 **v19.07.7 `distfeeds.conf`**
+  * Backup original `distfeeds.conf`
+```
+mv /etc/opkg/distfeeds.conf /etc/opkg/distfeeds.conf_orig
+```
 
+  * Create v19 `distfeeds.conf`
+```
+cat << "EOF" > /etc/opkg/distfeeds.conf
+src/gz openwrt_core https://downloads.openwrt.org/releases/19.07.7/targets/ramips/mt76x8/packages
+src/gz openwrt_base https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/base
+src/gz openwrt_luci https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/luci
+src/gz openwrt_packages https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/packages
+src/gz openwrt_routing https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/routing
+src/gz openwrt_telephony https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/telephony
+EOF
+```
+  * Install v19 packages
 ```
 opkg update
 opkg install python python-pip python-dev 
