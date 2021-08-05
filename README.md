@@ -1,6 +1,15 @@
 # OctoWrt
 A guide to install Octoprint on the Creality WiFi Box or similar OpenWrt devices
 
+<details>
+  <summary>Click to expand demo video!</summary>
+
+https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-b18a-8869d186eed6.mp4
+
+
+ 
+</details>
+
 -----------
 
 ## ⚠️ Work in Progress ⚠️
