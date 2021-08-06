@@ -12,14 +12,18 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
 
 -----------
 
-## ⚠️ Work in Progress ⚠️
+### ⚠️ Work in Progress ⚠️
 
 It is recommended to use the python 3 approach since python 2 got deprecated since January 1st, 2020. However, if you want older versions of Octoprint, python 2 approach might be the only way.
 
 ----------
 
-### Preparing:
-* **OpenWrt**: Make sure you've got OpenWrt flashed. Prferably one of [those](https://github.com/ihrapsa/KlipperWrt/tree/main/Firmware/OpenWrt_snapshot) images (since they come with preinstalled drivers for serial communications and webcam support)
+## ⤵️ Preparing:
+
+<details>
+  <summary>Expand steps!</summary>
+  
+* **OpenWrt**: Make sure you've got OpenWrt flashed. Preferably one of [those](https://github.com/ihrapsa/KlipperWrt/tree/main/Firmware/OpenWrt_snapshot) images (since they come with preinstalled drivers for serial communications and webcam support) -> Once flashed setup Wi-Fi client or wired connection for internet access on the box
 * **Extroot**: execute [this](https://github.com/ihrapsa/KlipperWrt/blob/main/scripts/1_format_extroot.sh) script. Make sure to have a microsd plugged
 * **Swap**: 
 
@@ -44,6 +48,13 @@ It is recommended to use the python 3 approach since python 2 got deprecated sin
   exit 0
   EOF
   ```
+  
+</details>
+
+## ⤵️ Installing:
+
+<details>
+  <summary>Expand steps!</summary>
 
 #### 1. Install OpenWrt dependencies:
 
@@ -55,21 +66,27 @@ opkg install v4l-utils mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-st
 
 ------------------------------
 
-* #### Python 3:
+* **Python 3**:
 
 <details>
   <summary>Expand steps!</summary>
-
+    
+Install python 3 packages
 ```
-opkg install python3 python3-pip python3-dev 
+opkg install python3 python3-pip python3-dev python3-psutil python3-netifaces 
 pip install --upgrade setuptools
 ```
-
+  Install cross compiled python 3 packages:
+```
+cd /tmp
+wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/python3-regex_2021-8-3_mipsel_24kc.ipk
+opkg install *.ipk
+```
  </details>
  
 #### OR
   
-* #### Python 2:
+* **Python 2**:
 
 <details>
   <summary>Expand steps!</summary>
@@ -144,5 +161,15 @@ service octoprint enable
 ```
 reboot
 ```
+
 ▶️ _Note!_  
 Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) hat are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview. 
+  
+</details>
+
+-------------------------
+
+## 🔝 Credits:
+
+<img width=20 align=center src="https://user-images.githubusercontent.com/40600040/128488418-c703c383-1835-49a0-aa41-eadee0671ab7.png">  **Gina and co.** for creating and developping [OctoPrint](https://github.com/OctoPrint/OctoPrint)  
+<img width=20 align=center src="https://user-images.githubusercontent.com/40600040/128488057-52b688f7-25d5-46e1-9ac8-bb5309384d98.png">  **George** a.k.a [figgyc](https://github.com/figgyc) for porting OpenWrt to this device  
