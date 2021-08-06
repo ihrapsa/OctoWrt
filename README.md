@@ -14,19 +14,39 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
 
 ## ⚠️ Work in Progress ⚠️
 
-This is still python2 based. Python3 version coming soon...
+It is recommended to use the python 3 approach since python 2 got deprecated since January 1st, 2020. However, if you want older versions of Octoprint, python 2 approach might be the only way.
 
 ----------
 
 #### 1. Install OpenWrt dependencies:
-**original `distfeeds.conf`**:
 
 ```
 opkg update
-opkg install gcc make unzip htop wget-ssl
+opkg install gcc make unzip htop wget-ssl git-http
 opkg install v4l-utils mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-streamer-www
 ```
 
+------------------------------
+
+* #### Python 3:
+
+<details>
+  <summary>Expand steps!</summary>
+
+```
+opkg install python3 python3-pip python3-dev 
+pip install --upgrade setuptools
+```
+
+ </details>
+ 
+#### OR
+  
+* #### Python 2:
+
+<details>
+  <summary>Expand steps!</summary>
+  
 **v19.07.7 `distfeeds.conf`**
   * Backup original `distfeeds.conf`
 ```
@@ -44,12 +64,16 @@ src/gz openwrt_routing https://downloads.openwrt.org/releases/19.07.7/packages/m
 src/gz openwrt_telephony https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/telephony
 EOF
 ```
-  * Install v19 packages
+  * Install python 2 packages
 ```
 opkg update
 opkg install python python-pip python-dev 
 pip install --upgrade setuptools
 ```
+
+  </details>
+
+--------------------
 
 #### 2. Install Octoprint:
 
