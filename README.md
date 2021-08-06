@@ -167,6 +167,14 @@ reboot
 ▶️ _Note!_  
 Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) hat are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview. 
   
+#### 7. First setup
+  
+When prompted use thefollowing server commands:
+
+  - Restart OctoPrint : `/etc/init.d/octoprint restart`  
+  - Restart system : `reboot`  
+  - Shutdown system : `poweroff`  
+
 </details>
 
 -------------------------
