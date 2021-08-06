@@ -8,7 +8,30 @@ A guide to install OctoPrint on the Creality WiFi Box or similar OpenWrt devices
 
 ------------------
 
-### Demo:
+#### What is the Creality [Wi-Fi Box](https://www.creality.com/goods-detail/creality-box-3d-printer)?
+
+<details>
+  <summary>Click to expand info!</summary>
+
+[<img align=center src="https://user-images.githubusercontent.com/40600040/128502047-f25d9156-31a8-4bc9-b0ed-45200cdfe411.png">](https://www.creality.com/goods-detail/creality-box-3d-printer)  
+  = A router box device released by Creality meant to add cloud control to your printer. Comes with closed source and proprietary software. However, some people might not like that.
+
+**Specifications:**
+
+ (_taken form figgyc's commit_)
+
+- **SoC**: MediaTek MT7688AN @ 580 MHz  
+- **Flash**: BoyaMicro BY25Q128AS (16 MiB, SPI NOR)  
+- **RAM**: 128 MiB DDR2 (Winbond W971GG6SB-25)  
+- **Peripheral**: Genesys Logic GL850G 2 port USB 2.0 hub  
+- **I/O**: 1x 10/100 Ethernet port, microSD SD-XC Class 10 slot, 4x LEDs, 2x USB 2.0 ports, micro USB input (for power only), reset button  
+- **FCC ID**: 2AXH6CREALITY-BOX  
+- **UART**: test pads: (square on silkscreen) 3V3, TX, RX, GND; default baudrate: 57600  
+  
+  </details>
+  
+
+#### Demo:
 <details>
   <summary>Click to expand demo video!</summary>
 
