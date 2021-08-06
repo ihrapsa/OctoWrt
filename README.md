@@ -165,16 +165,25 @@ reboot
 ```
 
 ▶️ _Note!_  
-Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) hat are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview. 
+_Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) hat are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview. _
   
 #### 7. First setup
   
-When prompted use thefollowing server commands:
+When prompted use thefollowing **server commands**:
 
   - Restart OctoPrint : `/etc/init.d/octoprint restart`  
   - Restart system : `reboot`  
   - Shutdown system : `poweroff`  
 
+For **webcam** support:  
+  
+  `/etc/config/mjpg-streamer` is the configuration file. Modify that to change resolution, fps, user, pass etc.  
+  Inside OctoPrint snapshot and stream fields add the following:
+  - Stream URL: `http://your-box-ip:8080/?action=stream`  
+  - Snapshot URL: `http://your-box-ip:8080/?action=snapshot` 
+  
+  If webcam not showing, unplug and replug it.  
+  If you don't want webcam authentication you can comment or delete the user and password lines inside `mjpg-streamer` config file. Make sure to restart it after that:  `/etc/init.d/mjpg-streamer restart`
 </details>
 
 -------------------------
