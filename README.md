@@ -98,7 +98,7 @@ opkg install v4l-utils mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-st
 
 Install python 3 packages
 ```
-opkg install python3 python3-pip python3-dev python3-psutil python3-netifaces 
+opkg install python3 python3-pip python3-dev python3-psutil python3-netifaces python3-pillow
 pip install --upgrade setuptools
 ```
   Install cross compiled python 3 packages:
