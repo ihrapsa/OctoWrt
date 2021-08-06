@@ -4,7 +4,7 @@
 <img height=100 src="img/OctoPrint+OpenWrt.png">
 </p>
 
-A guide to install Octoprint on the Creality WiFi Box or similar OpenWrt devices.
+A guide to install OctoPrint on the Creality WiFi Box or similar OpenWrt devices.
 
 ------------------
 
