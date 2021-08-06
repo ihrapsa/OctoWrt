@@ -1,4 +1,9 @@
-Before installing these ffmpeg packages delete opkg list : `rm -rf /tmp/opkg-lists`  
+Before installing these ffmpeg packages delete opkg list :
+
+```
+rm -rf /tmp/opkg-lists
+```
+
 To download the packages, either clone this repo or use the following commands:  
 
 ```
@@ -21,4 +26,10 @@ wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/libx264_2020-10
 wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/shine_3.1.1-1_mipsel_24kc.ipk -P /root/ffmpeg;
 ```
 
-Files will download to `/root/ffmpeg`  
+Files will download to `/root/ffmpeg`
+To install them:
+
+```
+cd /root/ffmpeg
+opkg install *.ipk
+```
