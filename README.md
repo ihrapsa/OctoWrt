@@ -1,22 +1,22 @@
 # OctoWrt
-A guide to install Octoprint on the Creality WiFi Box or similar OpenWrt devices
 
+<p align="left">
+<img height=100 src="img/OctoPrint+OpenWrt.png">
+</p>
+
+A guide to install Octoprint on the Creality WiFi Box or similar OpenWrt devices.
+
+------------------
+
+### Demo:
 <details>
   <summary>Click to expand demo video!</summary>
 
 https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-b18a-8869d186eed6.mp4
 
-
- 
 </details>
 
------------
-
-### ⚠️ Work in Progress ⚠️
-
-It is recommended to use the python 3 approach since python 2 got deprecated since January 1st, 2020. However, if you want older versions of Octoprint, python 2 approach might be the only way.
-
-----------
+------------------
 
 ## ⤵️ Preparing:
 
@@ -68,9 +68,11 @@ opkg install v4l-utils mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-st
 
 * **Python 3**:
 
+⚠️ _It is recommended to use the python 3 approach since python 2 got deprecated since January 1st, 2020. However, if you want older versions of Octoprint, python 2 approach might be the only way._
+  
 <details>
   <summary>Expand steps!</summary>
-    
+
 Install python 3 packages
 ```
 opkg install python3 python3-pip python3-dev python3-psutil python3-netifaces 
