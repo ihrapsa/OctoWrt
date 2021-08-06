@@ -18,6 +18,33 @@ It is recommended to use the python 3 approach since python 2 got deprecated sin
 
 ----------
 
+### Preparing:
+* **OpenWrt**: Make sure you've got OpenWrt flashed. Prferably one of [those](https://github.com/ihrapsa/KlipperWrt/tree/main/Firmware/OpenWrt_snapshot) images (since they come with preinstalled drivers for serial communications and webcam support)
+* **Extroot**: execute [this](https://github.com/ihrapsa/KlipperWrt/blob/main/scripts/1_format_extroot.sh) script. Make sure to have a microsd plugged
+* **Swap**: 
+
+  ```
+  opkg update && opkg install swap-utils zram-swap
+  ```
+  ```
+  dd if=/dev/zero of=/overlay/swap.page bs=1M count=512;
+  mkswap /overlay/swap.page;
+  swapon /overlay/swap.page;
+  mount -o remount,size=256M /tmp;
+  ```
+  ```
+  rm /etc/rc.local;
+  cat << "EOF" > /etc/rc.local
+  # Put your custom commands here that should be executed once
+  # the system init finished. By default this file does nothing.
+  ###activate the swap file on the SD card  
+  swapon /overlay/swap.page  
+  ###expand /tmp space  
+  mount -o remount,size=256M /tmp
+  exit 0
+  EOF
+  ```
+
 #### 1. Install OpenWrt dependencies:
 
 ```
