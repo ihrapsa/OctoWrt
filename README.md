@@ -146,7 +146,7 @@ pip install --upgrade setuptools
 
 #### 2. Install Octoprint:
 
-`pip install Octprint==1.6.1`
+`pip install Octoprint==1.6.1`
 
 #### 3. Create octoprint service:
 ```
