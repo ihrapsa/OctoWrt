@@ -187,10 +187,16 @@ service octoprint enable
 reboot
 ```
 
-▶️ _Note!_  
-_Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) hat are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview. _
+▶️ _**Note!**_  
+_Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) hat are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview._
   
 #### 7. First setup
+  
+Access Octoprint UI on port 5000
+  
+```
+http://box-ip:5000
+```
   
 When prompted use thefollowing **server commands**:
 
