@@ -47,6 +47,33 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
   <summary>Expand steps!</summary>
   
 * **OpenWrt**: Make sure you've got OpenWrt flashed. Preferably one of [those](https://github.com/ihrapsa/KlipperWrt/tree/main/Firmware/OpenWrt_snapshot) images (since they come with preinstalled drivers for serial communications and webcam support) -> Once flashed setup Wi-Fi client or wired connection for internet access on the box
+* **Distfeeds fix**
+
+  >
+      mv /etc/opkg/distfeeds.conf /etc/opkg/distfeeds.conf_orig_old;
+      mv /etc/opkg.conf /etc/opkg.conf_orig;
+
+  _(copy/paste the entire block and execute it)_
+  >
+      cat << "EOF" > /etc/opkg/distfeeds.conf
+      src/gz openwrt_core https://downloads.openwrt.org/releases/21.02.0/targets/ramips/mt76x8/packages
+      src/gz openwrt_base https://downloads.openwrt.org/releases/21.02.0/packages/mipsel_24kc/base
+      src/gz openwrt_luci https://downloads.openwrt.org/releases/21.02.0/packages/mipsel_24kc/luci
+      src/gz openwrt_packages https://downloads.openwrt.org/releases/21.02.0/packages/mipsel_24kc/packages
+      src/gz openwrt_routing https://downloads.openwrt.org/releases/21.02.0/packages/mipsel_24kc/routing
+      src/gz openwrt_telephony https://downloads.openwrt.org/releases/21.02.0/packages/mipsel_24kc/telephony
+      EOF
+  
+    _(copy/paste the entire block and execute it)_
+  >
+      cat << "EOF" > /etc/opkg.conf
+      dest root /
+      dest ram /tmp
+      lists_dir ext /var/opkg-lists
+      option overlay_root /overlay
+      #option check_signature
+      EOF
+  
 * **Extroot**: execute [this](https://github.com/ihrapsa/KlipperWrt/blob/main/scripts/1_format_extroot.sh) script. Make sure to have a microsd plugged
 * **Swap**: 
 
