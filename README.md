@@ -75,6 +75,14 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
       EOF
   
 * **Extroot**: execute [this](https://github.com/ihrapsa/KlipperWrt/blob/main/scripts/1_format_extroot.sh) script. Make sure to have a microsd plugged
+  
+  ```
+  cd ~
+  wget https://github.com/ihrapsa/KlipperWrt/raw/main/scripts/1_format_extroot.sh
+  chmod +x 1_format_extroot.sh
+  ./1_format_extroot.sh
+  ```
+  
 * **Swap**: 
 
   ```
