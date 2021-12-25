@@ -184,27 +184,33 @@ pip install --upgrade setuptools
 `pip install Octoprint==1.6.1`
 
 #### 3. Create octoprint service:
-```
-cat << "EOF" > /etc/init.d/octoprint
-#!/bin/sh /etc/rc.common
-# Copyright (C) 2009-2014 OpenWrt.org
-# Put this inside /etc/init.d/
+  
+  <details>
+    <summary> Expand </summary>
+  
+  ```
+  cat << "EOF" > /etc/init.d/octoprint
+  #!/bin/sh /etc/rc.common
+  # Copyright (C) 2009-2014 OpenWrt.org
+  # Put this inside /etc/init.d/
 
-START=91
-STOP=10
-USE_PROCD=1
+  START=91
+  STOP=10
+  USE_PROCD=1
 
 
-start_service() {
-    procd_open_instance
-    procd_set_param command octoprint serve --iknowwhatimdoing
-    procd_set_param respawn
-    procd_set_param stdout 1
-    procd_set_param stderr 1
-    procd_close_instance
-}
-EOF
-```
+  start_service() {
+      procd_open_instance
+      procd_set_param command octoprint serve --iknowwhatimdoing
+      procd_set_param respawn
+      procd_set_param stdout 1
+      procd_set_param stderr 1
+      procd_close_instance
+  }
+  EOF
+  ```
+  </details>
+  
 #### 4. Make it executable:
 
 ```
@@ -223,9 +229,12 @@ reboot
 ```
 
 ▶️ _**Note!**_  
-_Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) hat are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview._
+_Booting on the last versions takes a while (~5 minutes). Once booted however, everything works as expected. If you care that much about this you can install older versions (v1.0.0 for example) that are much lighter but are not plugin enabled. Only Temps, Control, Webcam and Gcode preview._
   
 #### 7. First setup
+  
+<details>
+  <summary> Expand steps </summary>
   
 Access Octoprint UI on port 5000
   
@@ -248,6 +257,66 @@ For **webcam** support:
   
   If webcam not showing, unplug and replug it.  
   If you don't want webcam authentication you can comment or delete the user and password lines inside `mjpg-streamer` config file. Make sure to restart it after that:  `/etc/init.d/mjpg-streamer restart`
+  
+  </details>
+  
+  #### 8. Timelapse plugin setup
+        
+* _ffmpeg packages_
+  
+  <details> 
+    <summary> Expand steps </summary>
+
+    Before installing these ffmpeg packages delete opkg list :
+
+    ```
+    rm -rf /tmp/opkg-lists
+    ```
+
+    To download the packages use the following commands:  
+
+    ```
+    mkdir /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/Packages -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/Packages.gz -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/Packages.manifest -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/Packages.sig -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/alsa-lib_1.2.4-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/fdk-aac_2.0.1-4_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/ffmpeg_4.3.2-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/ffprobe_4.3.2-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/libatomic1_8.4.0-3_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/libbz21.0_1.0.8-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/libffmpeg-full_4.3.2-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/libgmp10_6.2.1-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/libgnutls_3.7.2-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/libnettle8_3.6-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/libx264_2020-10-26-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/ffmpeg/shine_3.1.1-1_mipsel_24kc.ipk -P /root/ffmpeg;
+    ```
+
+    Files will download to `/root/ffmpeg`  
+    To install them:
+
+    ```
+    cd /root/ffmpeg
+    opkg install *.ipk
+    ```
+  </details>
+
+* _ffmpeg bin path_
+  
+  <details>
+    <summary> Expand steps </summary>
+    
+    In octoprint settings set the ffmpeg binary path as:
+    
+    ```
+    /usr/bin/ffmpeg
+    ```
+    
+   </details
+  
 </details>
 
 -------------------------
