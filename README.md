@@ -139,7 +139,7 @@ pip install --upgrade setuptools
   Install cross compiled python 3 packages:
 ```
 cd /tmp
-wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/python3-regex_2021-8-3_mipsel_24kc.ipk
+wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/python3.9-regex-2022.1.18+netifaces-0.11.0_mipsel_24kc.ipk
 opkg install *.ipk
 ```
  </details>
@@ -181,7 +181,7 @@ pip install --upgrade setuptools
 
 #### 2. Install Octoprint:
 
-`pip install Octoprint==1.6.1`
+`pip install Octoprint==1.7.3`
 
 #### 3. Create octoprint service:
   
