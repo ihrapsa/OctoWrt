@@ -121,6 +121,12 @@ opkg update
 opkg install gcc make unzip htop wget-ssl git-http
 opkg install v4l-utils mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-streamer-www
 ```
+By default mjpg-streamer comes with username=openwrt and password=openwrt. If you don't want them do:
+
+```
+uci delete mjpg-streamer.core.username
+uci delete mjpg-streamer.core.password
+```
 
 ------------------------------
 
