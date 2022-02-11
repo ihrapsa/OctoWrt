@@ -306,7 +306,7 @@ For **webcam** support:
 
     ```
     cd /root/ffmpeg
-    opkg install *.ipk
+    opkg install *.ipk --force-overwrite
     ```
   </details>
 
