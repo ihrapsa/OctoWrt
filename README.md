@@ -40,6 +40,13 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
 </details>
 
 ------------------
+## Script:
+
+
+## Manual Steps:
+
+<details>
+  <summary>Expand steps!</summary>
 
 ## ⤵️ Preparing:
 
@@ -323,6 +330,8 @@ For **webcam** support:
     
    </details
   
+</details>
+
 </details>
 
 -------------------------
