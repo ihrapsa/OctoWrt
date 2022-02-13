@@ -146,7 +146,7 @@ pip install --upgrade setuptools
 ```
 cd /tmp
 wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/python3.9-regex-2022.1.18+netifaces-0.11.0_mipsel_24kc.ipk
-opkg install *.ipk
+opkg install *.ipk --force-overwrite
 ```
  </details>
  
