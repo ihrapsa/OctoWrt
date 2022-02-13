@@ -40,10 +40,71 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
 </details>
 
 ------------------
-## Script:
+## Automatic:
 
+<details>
+  <summary>Expand steps!</summary>
 
-## Manual Steps:
+  #### 1. Flash Openwrt from [here:](https://github.com/ihrapsa/OctoWrt/tree/main/firmware/OpenWrt_snapshot)
+       Once flashed setup internet access on the box (either Wi-Fi client or wired connection)
+  
+ <details>
+  <summary>Expand Internet setup!</summary>
+ 
+- Make sure you've flahsed/sysupgraded latest `.bin` file from `/Firmware/OpenWrt_snapshot/` or from latest release.
+- Connect to the `OctoWrt` access point
+- Access LuCi web interface and log in on `192.168.1.1:81`
+- _(**optional** but recommended)_ Add a password to the `OctoWrt` access point: `Wireless` -> Under wireless overview `EDIT` the `OctoWrt` interface -> `Wireless Security` -> Choose an encryption -> set a password -> `Save` -> `Save & Apply`
+- _(**optional** but recommended)_ Add a password: `System` -> `Administration` -> `Router Password`
+- ❗If your home network subnet is on 1 (192.168.1.x), in order to avoid any ip conflicts, change the static ip of the box LAN from 192.168.1.1 to something like 192.168.3.1. To do that access the luci webinterface -> `Network` -> `Interfaces` and edit the static ip -> `Save` -> press the down arow on the Save&Apply button -> `Apply Unchecked`. You can now access luci on the new ip and continue configureing Client setup. 
+- Connect as a client to your Internet router: `Network` -> `Wireless` -> `SCAN` -> `Join Network` -> check `Lock to BSSID` -> `Create/Assign Firewall zone` then under `custom` type `wwan` enter -> `Submit` -> `Save` -> `Dropdown arrow -> Apply Unchecked` -> `Apply Unchecked`
+- Connect back to your main internet router and find the new box's ip inside the `DHCP` list.
+- ❗  Access the terminal tab (`Services` -> `Terminal`) ❗ If terminal tab is not working go to `Config` tab and change `Interface` to the interface you are connecting through the box (your wireless router SSID for example) -> `Save & Apply`.
+- Proceed with step 2
+   
+  </details>
+  
+  #### 2. Execute extroot script:
+  ```
+  cd /tmp
+  wget https://github.com/ihrapsa/OctoWrt/raw/main/scripts/1_format_extroot.sh
+  chmod +x 1_format_extroot.sh
+  ./1_format_extroot.sh
+  ```
+  #### 3. Execute install script:
+  ```
+  cd /tmp
+  wget https://github.com/ihrapsa/OctoWrt/raw/main/scripts/2_octoprint_install.sh
+  chmod +x 2_octoprint_install.sh
+  ./2_octoprint_install.sh
+  ```
+  
+  
+  #### 4. Access Octoprint UI on port 5000
+  
+  ```
+  http://box-ip:5000
+  ```
+  
+  When prompted use the following **server commands**:
+
+    - Restart OctoPrint : `/etc/init.d/octoprint restart`  
+    - Restart system : `reboot`  
+    - Shutdown system : `poweroff`  
+
+  For **webcam** support:  
+  
+  `/etc/config/mjpg-streamer` is the configuration file. Modify that to change resolution, fps, user, pass etc.  
+  
+  Inside OctoPrint snapshot and stream fields add the following:  
+  - Stream URL: `http://your-box-ip:8080/?action=stream`  
+  - Snapshot URL: `http://your-box-ip:8080/?action=snapshot` 
+  - ffmpeg binary path as: `/usr/bin/ffmpeg`
+  
+  
+</details>
+  
+## Manual:
 
 <details>
   <summary>Expand steps!</summary>
@@ -53,7 +114,7 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
 <details>
   <summary>Expand steps!</summary>
   
-* **OpenWrt**: Make sure you've got OpenWrt flashed. Preferably one of [those](https://github.com/ihrapsa/KlipperWrt/tree/main/Firmware/OpenWrt_snapshot) images (since they come with preinstalled drivers for serial communications and webcam support) -> Once flashed setup Wi-Fi client or wired connection for internet access on the box
+* **OpenWrt**: Make sure you've got OpenWrt flashed. Preferably one of [those](https://github.com/ihrapsa/OctoWrt/tree/main/firmware/OpenWrt_snapshot) images (since they come with preinstalled drivers for serial communications and webcam support) -> Once flashed setup Wi-Fi client or wired connection for internet access on the box
 * **Distfeeds fix**
 
   >
