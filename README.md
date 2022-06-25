@@ -124,12 +124,12 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
   _(copy/paste the entire block and execute it)_
   >
       cat << "EOF" > /etc/opkg/distfeeds.conf
-      src/gz openwrt_core https://downloads.openwrt.org/releases/21.02.1/targets/ramips/mt76x8/packages
-      src/gz openwrt_base https://downloads.openwrt.org/releases/21.02.1/packages/mipsel_24kc/base
-      src/gz openwrt_luci https://downloads.openwrt.org/releases/21.02.1/packages/mipsel_24kc/luci
-      src/gz openwrt_packages https://downloads.openwrt.org/releases/21.02.1/packages/mipsel_24kc/packages
-      src/gz openwrt_routing https://downloads.openwrt.org/releases/21.02.1/packages/mipsel_24kc/routing
-      src/gz openwrt_telephony https://downloads.openwrt.org/releases/21.02.1/packages/mipsel_24kc/telephony
+      src/gz openwrt_core https://downloads.openwrt.org/snapshots/targets/ramips/mt76x8/packages
+      src/gz openwrt_base https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/base
+      src/gz openwrt_luci https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/luci
+      src/gz openwrt_packages https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/packages
+      src/gz openwrt_routing https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/routing
+      src/gz openwrt_telephony https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/telephony
       EOF
   
     _(copy/paste the entire block and execute it)_
