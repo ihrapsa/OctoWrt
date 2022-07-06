@@ -1,3 +1,5 @@
+# :exclamation: Check Releases page for binaries :exclamation:
+
 ## Flashing OpenWrt:  
 
 ### If you're box is currently on stock firmware:
