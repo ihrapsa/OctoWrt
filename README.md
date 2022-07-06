@@ -115,33 +115,7 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
   <summary>Expand steps!</summary>
   
 * **OpenWrt**: Make sure you've got OpenWrt flashed. Preferably one of [those](https://github.com/ihrapsa/OctoWrt/tree/main/firmware/OpenWrt_snapshot) images (since they come with preinstalled drivers for serial communications and webcam support) -> Once flashed setup Wi-Fi client or wired connection for internet access on the box
-* **Distfeeds fix**
 
-  >
-      mv /etc/opkg/distfeeds.conf /etc/opkg/distfeeds.conf_orig_old;
-      mv /etc/opkg.conf /etc/opkg.conf_orig;
-
-  _(copy/paste the entire block and execute it)_
-  >
-      cat << "EOF" > /etc/opkg/distfeeds.conf
-      src/gz openwrt_core https://downloads.openwrt.org/snapshots/targets/ramips/mt76x8/packages
-      src/gz openwrt_base https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/base
-      src/gz openwrt_luci https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/luci
-      src/gz openwrt_packages https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/packages
-      src/gz openwrt_routing https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/routing
-      src/gz openwrt_telephony https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/telephony
-      EOF
-  
-    _(copy/paste the entire block and execute it)_
-  >
-      cat << "EOF" > /etc/opkg.conf
-      dest root /
-      dest ram /tmp
-      lists_dir ext /var/opkg-lists
-      option overlay_root /overlay
-      #option check_signature
-      EOF
-  
 * **Extroot**: execute [this](https://github.com/ihrapsa/KlipperWrt/blob/main/scripts/1_format_extroot.sh) script. Make sure to have a microsd plugged
   
   ```
@@ -201,61 +175,19 @@ uci delete mjpg-streamer.core.password
 * **Python 3**:
 
 ⚠️ _It is recommended to use the python 3 approach since python 2 got deprecated since January 1st, 2020. However, if you want older versions of Octoprint, python 2 approach might be the only way._
-  
-<details>
-  <summary>Expand steps!</summary>
 
 Install python 3 packages
 ```
 opkg install python3 python3-pip python3-dev python3-psutil python3-netifaces python3-pillow
 pip install --upgrade setuptools
+pip install --upgrade pip
 ```
-  Install cross compiled python 3 packages:
-```
-cd /tmp
-wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/python3.9-regex-2022.1.18+netifaces-0.11.0_mipsel_24kc.ipk
-opkg install *.ipk --force-overwrite
-```
- </details>
  
-#### OR
-  
-* **Python 2**:
-
-<details>
-  <summary>Expand steps!</summary>
-  
-**v19.07.7 `distfeeds.conf`**
-  * Backup original `distfeeds.conf`
-```
-mv /etc/opkg/distfeeds.conf /etc/opkg/distfeeds.conf_orig
-```
-
-  * Create v19 `distfeeds.conf`
-```
-cat << "EOF" > /etc/opkg/distfeeds.conf
-src/gz openwrt_core https://downloads.openwrt.org/releases/19.07.7/targets/ramips/mt76x8/packages
-src/gz openwrt_base https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/base
-src/gz openwrt_luci https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/luci
-src/gz openwrt_packages https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/packages
-src/gz openwrt_routing https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/routing
-src/gz openwrt_telephony https://downloads.openwrt.org/releases/19.07.7/packages/mipsel_24kc/telephony
-EOF
-```
-  * Install python 2 packages
-```
-opkg update
-opkg install python python-pip python-dev 
-pip install --upgrade setuptools
-```
-
-  </details>
-
 --------------------
 
 #### 2. Install Octoprint:
 
-`pip install Octoprint==1.7.3`
+`pip install Octoprint==1.8.1`
 
 #### 3. Create octoprint service:
   
