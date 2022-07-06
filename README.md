@@ -52,9 +52,9 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
   <summary>Expand Internet setup!</summary>
  
 - Make sure you've flahsed/sysupgraded latest `.bin` file from `/Firmware/OpenWrt_snapshot/` or from latest release.
-- Connect to the `OctoWrt` access point
+- Connect to the `OpenWrt` access point
 - Access LuCi web interface and log in on `192.168.1.1:81`
-- _(**optional** but recommended)_ Add a password to the `OctoWrt` access point: `Wireless` -> Under wireless overview `EDIT` the `OctoWrt` interface -> `Wireless Security` -> Choose an encryption -> set a password -> `Save` -> `Save & Apply`
+- _(**optional** but recommended)_ Add a password to the `OctoWrt` access point: `Wireless` -> Under wireless overview `EDIT` the `OpenWrt` interface -> `Wireless Security` -> Choose an encryption -> set a password -> `Save` -> `Save & Apply`
 - _(**optional** but recommended)_ Add a password: `System` -> `Administration` -> `Router Password`
 - ❗If your home network subnet is on 1 (192.168.1.x), in order to avoid any ip conflicts, change the static ip of the box LAN from 192.168.1.1 to something like 192.168.3.1. To do that access the luci webinterface -> `Network` -> `Interfaces` and edit the static ip -> `Save` -> press the down arow on the Save&Apply button -> `Apply Unchecked`. You can now access luci on the new ip and continue configureing Client setup. 
 - Connect as a client to your Internet router: `Network` -> `Wireless` -> `SCAN` -> `Join Network` -> check `Lock to BSSID` -> `Create/Assign Firewall zone` then under `custom` type `wwan` enter -> `Submit` -> `Save` -> `Dropdown arrow -> Apply Unchecked` -> `Apply Unchecked`
