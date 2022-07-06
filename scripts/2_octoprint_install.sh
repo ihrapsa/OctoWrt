@@ -72,9 +72,7 @@ uci delete mjpg-streamer.core.password
 
 opkg install python3 python3-pip python3-dev python3-psutil python3-pillow
 pip install --upgrade setuptools
-cd /tmp
-wget https://github.com/ihrapsa/OctoWrt/raw/main/packages/python3.9-regex-2022.1.18+netifaces-0.11.0_mipsel_24kc.ipk
-opkg install *.ipk --force-overwrite
+pip install --upgrade pip
 
 cd /
 
@@ -87,7 +85,7 @@ echo " "
 echo " Sit tight... "
 echo " "
 
-pip install Octoprint==1.7.3
+pip install Octoprint==1.8.1
 
 echo " "
 echo "##################################"
