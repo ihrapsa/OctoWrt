@@ -69,6 +69,7 @@ opkg update
 opkg install gcc make unzip htop wget-ssl git-http v4l-utils mjpg-streamer-input-uvc mjpg-streamer-output-http mjpg-streamer-www
 uci delete mjpg-streamer.core.username
 uci delete mjpg-streamer.core.password
+uci commit mjpg-streamer
 
 opkg install python3 python3-pip python3-dev python3-psutil python3-pillow
 pip install --upgrade setuptools
