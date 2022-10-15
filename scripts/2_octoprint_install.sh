@@ -71,12 +71,9 @@ uci delete mjpg-streamer.core.username
 uci delete mjpg-streamer.core.password
 uci commit mjpg-streamer
 
-opkg install python3 python3-pip python3-dev python3-psutil python3-pillow
-pip install --upgrade setuptools
+opkg install python3 python3-pip python3-dev python3-psutil python3-pillow python3-cffi python3-tornado
 pip install --upgrade pip
-
-cd /
-
+pip install --upgrade setuptools
 
 echo " "
 echo "############################"
@@ -86,7 +83,13 @@ echo " "
 echo " Sit tight... "
 echo " "
 
-pip install Octoprint==1.8.1
+wget https://github.com/OctoPrint/OctoPrint/archive/refs/tags/1.8.4.zip -P /root
+unzip /root/1.8.4.zip -d /root
+
+python /root/OctoPrint-1.8.4/setup.py install 
+
+
+cd /
 
 echo " "
 echo "##################################"
