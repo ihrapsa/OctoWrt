@@ -85,7 +85,7 @@ echo " "
 
 wget https://github.com/OctoPrint/OctoPrint/archive/refs/tags/1.8.4.zip -P /root
 unzip /root/1.8.4.zip -d /root
-
+cd /root/OctoPrint-1.8.4
 python /root/OctoPrint-1.8.4/setup.py install 
 
 
