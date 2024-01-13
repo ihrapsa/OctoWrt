@@ -83,8 +83,19 @@ echo " "
 echo " Sit tight... "
 echo " "
 
-pip install octoprint
+# Get the current Python version
+PYTHON_VERSION=`python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}.{2}".format(*version))'`
 
+echo "Python version: $PYTHON_VERSION"
+
+# Compare the current Python version is greater than or equal to 3.11.0, install OctoPrint 1.9.3 else install OctoPrint 1.8.1
+if [ "$(printf '%s\n' "$PYTHON_VERSION" "3.11.0" | sort -V | head -n1)" = "3.11.0" ]; then
+    echo "Python version is greater than or equal to 3.11.0, installing OctoPrint 1.9.3"
+    pip install octoprint:1.9.3
+else
+    echo "Python version is less than 3.11.0, installing OctoPrint 1.8.1"
+    pip install octoprint:1.8.1
+fi
 
 cd /
 

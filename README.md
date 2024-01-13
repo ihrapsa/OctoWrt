@@ -74,7 +74,7 @@ https://user-images.githubusercontent.com/40600040/128418449-79f69b98-8f81-4315-
   #### 3. Execute install script:
   ```
   cd /tmp
-  wget https://github.com/gravfu/OctoWrt/raw/main/scripts/2_octoprint_install.sh
+  wget https://github.com/ihrapsa/OctoWrt/raw/main/scripts/2_octoprint_install.sh
   chmod +x 2_octoprint_install.sh
   ./2_octoprint_install.sh
   ```
@@ -187,7 +187,26 @@ pip install --upgrade pip
 
 #### 2. Install Octoprint:
 
-`pip install Octoprint==1.8.1`
+⚠️ Since Octoprint 1.8 is not compatible with python 3.11 and higher, you will have to check your python version using this command:
+
+ `python --version`
+
+
+<details>
+    <summary> If your python version is `<= 3.10` </summary>
+
+```bash 
+pip install Octoprint==1.8.1
+```
+
+</details>
+<details>
+    <summary> Else if you are using python `>= 3.11` </summary>
+
+```bash
+pip install Octoprint==1.9.3
+```
+</details>
 
 #### 3. Create octoprint service:
   
