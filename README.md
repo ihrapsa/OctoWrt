@@ -187,7 +187,7 @@ pip install --upgrade pip
 
 #### 2. Install Octoprint:
 
-⚠️ Since Octoprint 1.8 is not compatible with python 3.11 and higher, you will have to check your python version using this command:
+⚠️ Since Octoprint 1.8.x is not compatible with python 3.11 and higher, you will have to check your python version using this command:
 
  `python --version`
 
