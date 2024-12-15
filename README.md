@@ -1,3 +1,5 @@
+# Please follow [ShivaJiva](https://github.com/shivajiva101/OctoWrt)'s fork for up to date releases and support.
+
 # OctoWrt
 
 <p align="left">
